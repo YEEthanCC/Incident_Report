@@ -1,0 +1,26 @@
+<div
+  class="container pt-3"
+  style="display: flex; justify-content: center; align-content: center"
+>
+  <div class="card" style="width: 18rem">
+    <img [src]="report.imageUrl" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ report.name }}</h5>
+      <p class="card-text">
+        Baddie's Name: {{ report.name }}<br />
+        Location: {{ report.placeName }}<br />
+        Reported by: {{ report.witness }} ({{ report.contact }})<br />
+        Status: {{ report.status }}<br />
+        Extra info:<br />
+        {{ report.info }}.
+      </p>
+      <button
+        class="btn btn-outline-primary mr-2"
+        [routerLink]="'edit/' + report.name"
+      >
+        EDIT
+      </button>
+      <button class="btn" (click)="onClick()">BACK</button>
+    </div>
+  </div>
+</div>

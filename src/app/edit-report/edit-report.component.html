@@ -1,0 +1,18 @@
+<app-map></app-map>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+    <fieldset class="d-grid gap-2 col-12">
+      <legend>REPORT A BADDIE</legend>
+      <input type="text" name="name" placeholder="BADDIES'S NAME" formControlName="name">
+
+      <input type="text" name="witness" placeholder="YOUR NAME" formControlName="witness">
+      <input type="text" name="contact" placeholder="CONTACT" formControlName="contact">
+      <input type="text" name="info" placeholder="EXTRA INFO" formControlName="info">
+      <input type="text" name="imageUrl" placeholder="LINK TO IMAGE" formControlName="imageUrl">
+      <button  class="btn btn-outline-primary">Submit</button>
+    </fieldset>
+  </form>
+
+  <select name="location" [(ngModel)]="selectedLocation" (change)="onLocationChange($event)" *ngIf="(locations$ | async) as locations">
+    <option *ngFor="let p of locations">{{ p.placeName }}</option>
+    <option>Add new location</option>
+  </select>
